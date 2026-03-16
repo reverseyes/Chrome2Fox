@@ -4,6 +4,14 @@
 
 Chrome2Fox is a Firefox extension that allows you to download and convert Chrome extensions from the Chrome Web Store to work on Firefox.
 
+## ⚠️ Important Disclaimer
+
+> **Every extension CAN be downloaded and installed, but NOT every extension WILL work.**
+>
+> Chrome and Firefox have fundamental API differences. Chrome2Fox converts the manifest and injects polyfills, but some Chrome-specific features simply don't exist in Firefox. Extensions that rely heavily on `chrome.debugger`, `chrome.tabGroups`, `chrome.identity`, or Service Worker-specific APIs may not function properly.
+>
+> Always test converted extensions via `about:debugging` before relying on them.
+
 ## ✨ Features
 
 - **One-click download** — Click "Add to Firefox" on any Chrome Web Store extension page
