@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chrome2Fox</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="c2f-header">
+    <div class="c2f-logo">
+      <img src="../icons/icon-32.png" alt="Chrome2Fox" width="28" height="28">
+      <h1>Chrome<span class="accent">2</span>Fox</h1>
+    </div>
+    <div class="c2f-version">v1.0.0</div>
+  </header>
+
+  <!-- Active Conversion Banner -->
+  <section id="active-conversion" class="c2f-active" style="display: none;">
+    <div class="c2f-active-header">
+      <img id="active-icon" class="c2f-active-icon" src="" alt="" width="32" height="32">
+      <div class="c2f-active-info">
+        <h3 id="active-name">Converting...</h3>
+        <p id="active-step" class="c2f-step">Downloading...</p>
+      </div>
+    </div>
+    <div class="c2f-progress-bar">
+      <div id="active-progress" class="c2f-progress-fill" style="width: 0%"></div>
+    </div>
+    <span id="active-pct" class="c2f-pct">0%</span>
+  </section>
+
+  <!-- Quick Actions -->
+  <section class="c2f-actions">
+    <a href="https://chromewebstore.google.com" target="_blank" class="c2f-action-btn">
+      <span class="c2f-action-icon">🛒</span>
+      <span>Chrome Web Store</span>
+    </a>
+    <a href="about:debugging#/runtime/this-firefox" class="c2f-action-btn" id="btn-debugging">
+      <span class="c2f-action-icon">🔧</span>
+      <span>Load Temporarily</span>
+    </a>
+  </section>
+
+  <!-- History -->
+  <section class="c2f-section">
+    <div class="c2f-section-header">
+      <h2>Recent Conversions</h2>
+      <button id="btn-clear" class="c2f-clear-btn" title="Clear history">🗑️</button>
+    </div>
+    <div id="history-list" class="c2f-history">
+      <div class="c2f-empty-state">
+        <p>No conversions yet.</p>
+        <p class="c2f-hint">Visit the Chrome Web Store and click<br>"Add to Firefox" on any extension!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Info Banner -->
+  <section class="c2f-info">
+    <details>
+      <summary>⚙️ Setup Tips</summary>
+      <ul>
+        <li>Use <strong>Firefox Developer Edition</strong> or <strong>Nightly</strong> for unsigned extensions</li>
+        <li>Set <code>xpinstall.signatures.required</code> to <code>false</code> in <code>about:config</code></li>
+        <li>Or load via <code>about:debugging</code> → "Load Temporary Add-on"</li>
+        <li>Not all Chrome APIs are supported — check compatibility reports</li>
+      </ul>
+    </details>
+  </section>
+
+  <!-- Footer -->
+  <footer class="c2f-footer">
+    <span>Made with 🦊 by Chrome2Fox</span>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

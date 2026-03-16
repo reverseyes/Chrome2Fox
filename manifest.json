@@ -1,0 +1,50 @@
+{
+  "manifest_version": 3,
+  "name": "Chrome2Fox",
+  "version": "1.0.0",
+  "description": "Install Chrome Web Store extensions directly on Firefox. Downloads, converts, and installs Chrome extensions seamlessly.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "chrome2fox@firefox.extension",
+      "strict_min_version": "128.0"
+    }
+  },
+  "permissions": [
+    "downloads",
+    "activeTab",
+    "storage",
+    "notifications",
+    "management"
+  ],
+  "host_permissions": [
+    "*://chromewebstore.google.com/*",
+    "*://clients2.google.com/*",
+    "*://clients2.googleusercontent.com/*"
+  ],
+  "background": {
+    "scripts": ["lib/jszip.min.js", "lib/crx-parser.js", "lib/manifest-converter.js", "lib/api-polyfill.js", "lib/crx-downloader.js", "background/service-worker.js"]
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://chromewebstore.google.com/*"],
+      "js": ["content/chrome-store.js"],
+      "css": ["content/chrome-store.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  }
+}
